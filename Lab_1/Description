@@ -1,1 +1,39 @@
-Hello
+Тема: Ювелирная мастерская 
+Построена ER модель, имеющая 3 таблицы: Клиенты (Clients), Заказы (Orders), Ювелирные изделия (JewelryItems).
+Поля, добавленные в таблицы, отображены на рисунке в присоединенном файле ER_model.png
+
+Для визуализации ER модели использовался сайт dbdiagramms.
+Ссылка на опубликованную ER-диаграмму: https://dbdiagram.io/d/676b31095406798ef794ca38
+
+Код для создания таблиц и выполнения связи между ними:
+
+// Таблица Клиенты
+Table Clients {
+  client_id integer [primary key]
+  fullname varchar
+  phone_number string
+  email varchar
+}
+
+// Таблица Заказы
+Table Orders {
+  order_id integer [primary key]
+  client_id integer
+  final_price integer
+  order_date date
+  delivery_date date
+}
+
+// Таблица Ювелирные изделия
+Table JewelryItems {
+  jewelry_id integer [primary key]
+  order_id integer
+  type varchar
+  material varchar
+  weight integer
+  base_price integer
+}
+
+// Отображение связей
+Ref: Orders.client_id > Clients.client_id // Один клиент может сделать один или много заказов
+Ref: JewelryItems.order_id > Orders.order_id // Один заказ может включать одно или несколько изделий
