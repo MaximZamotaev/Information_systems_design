@@ -2,7 +2,7 @@
 Построена ER модель, имеющая 3 таблицы: Клиенты (Clients), Заказы (Orders), Ювелирные изделия (JewelryItems).
 Поля, добавленные в таблицы, отображены на рисунке в присоединенном файле ER_model.png
 
-Для визуализации ER модели использовался сайт dbdiagramms.
+Для визуализации ER модели использовался сайт dbdiagramms (возможно потребуется включить VPN, чтобы перейти по моей ссылке ниже или просто зайти на сайт).
 Ссылка на опубликованную ER-диаграмму: https://dbdiagram.io/d/676b31095406798ef794ca38
 
 Код для создания таблиц и выполнения связи между ними:
@@ -11,7 +11,7 @@
 Table Clients {
   client_id integer [primary key]
   fullname varchar
-  phone_number string
+  phone_number varchar
   email varchar
 }
 
