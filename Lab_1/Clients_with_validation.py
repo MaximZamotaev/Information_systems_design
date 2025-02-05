@@ -1,4 +1,4 @@
-class Clientы:
+class Clients:
     def __init__(self, client_id, fullname, phone_number, email):
         # Валидируем поля при создании объекта
         if not self.validate_client_id(client_id):
