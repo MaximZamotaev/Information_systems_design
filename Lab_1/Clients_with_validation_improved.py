@@ -3,13 +3,13 @@ import re
 class Clients:
     def __init__(self, client_id, fullname, phone_number, email):
         # Инициализация полей через универсальный метод
-        self._set_field("client_id", client_id, self.validate_client_id,
+        self._set_field("_client_id", client_id, self.validate_client_id,
                         "Некорректный идентификатор клиента. Идентификатор должен быть положительным целым числом.")
-        self._set_field("fullname", fullname, self.validate_fullname,
+        self._set_field("_fullname", fullname, self.validate_fullname,
                         "Некорректное полное имя. Полное имя не может быть пустым.")
-        self._set_field("phone_number", phone_number, self.validate_phone_number,
+        self._set_field("_phone_number", phone_number, self.validate_phone_number,
                         "Некорректный номер телефона. Должен быть строкой из цифр и, возможно, начинаться с '+'.")
-        self._set_field("email", email, self.validate_email,
+        self._set_field("_email", email, self.validate_email,
                         "Некорректный email. Проверьте формат: должен быть в виде 'что-то@что-то.домен'.")
 
     # Геттеры
