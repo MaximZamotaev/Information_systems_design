@@ -1,7 +1,7 @@
 import re
 import json
 
-class ClientShort:
+class ClientsShort:
     def __init__(self, client_id, fullname):
         # Инициализация только краткой версии данных через универсальный метод
         self._set_field("_client_id", client_id, self.validate_client_id,
@@ -62,14 +62,14 @@ class ClientShort:
 
     # Метод __eq__ для сравнения объектов
     def __eq__(self, other):
-        if not isinstance(other, ClientShort):
+        if not isinstance(other, ClientsShort):
             return False
         return self._client_id == other._client_id
 
 # Пример использования
-client1 = ClientShort(client_id=1, fullname="Иван Иванов")
-client2 = ClientShort(client_id=2, fullname="Мария Смирнова")
-client3 = ClientShort(client_id=1, fullname="Иван Иванов")
+client1 = ClientsShort(client_id=1, fullname="Иван Иванов")
+client2 = ClientsShort(client_id=2, fullname="Мария Смирнова")
+client3 = ClientsShort(client_id=1, fullname="Иван Иванов")
 
 print("Полная версия клиента 1:")
 print(client1)
