@@ -2,7 +2,7 @@
 Построена ER модель, имеющая 3 таблицы: Клиенты (Clients), Заказы (Orders), Ювелирные изделия (JewelryItems).
 Поля, добавленные в таблицы, отображены на рисунке в присоединенном файле ER_model.png
 
-Для визуализации ER модели использовался сайт dbdiagramms (возможно потребуется включить VPN, чтобы перейти по моей ссылке ниже или просто зайти на сайт).
+Для визуализации ER модели использовался сайт dbdiagramms.com (возможно потребуется включить VPN, чтобы перейти по моей ссылке ниже или просто зайти на сайт).
 Ссылка на опубликованную ER-диаграмму: https://dbdiagram.io/d/676b31095406798ef794ca38
 
 Код для создания таблиц и выполнения связи между ними:
@@ -37,3 +37,42 @@ Table JewelryItems {
 // Отображение связей
 Ref: Orders.client_id > Clients.client_id // Один клиент может сделать один или много заказов
 Ref: JewelryItems.order_id > Orders.order_id // Один заказ может включать одно или несколько изделий
+
+
+Построена полная диаграмма классов: класс Clients - родитель, класс ClientsShort - потомок
+Для визуализации диаграммы классов использовался сайт https://editor.plantuml.com
+Код для создания полной диаграммы классов:
+
+@startuml
+class Clients {
+    - _client_id: int
+    - _fullname: str
+    - _phone_number: str
+    - _email: str
+    __init__(client_id: int, fullname: str, phone_number: str, email: str)
+    + from_json(data_json: str): Clients
+    + get_client_id(): int
+    + get_fullname(): str
+    + get_phone_number(): str
+    + get_email(): str
+    + set_client_id(client_id: int)
+    + set_fullname(fullname: str)
+    + set_phone_number(phone_number: str)
+    + set_email(email: str)
+    + validate_client_id(client_id: int): bool
+    + validate_fullname(fullname: str): bool
+    + validate_phone_number(phone_number: str): bool
+    + validate_email(email: str): bool
+    - _set_field(field_name: str, value, validator, error_message: str)
+    + __str__(): str
+    + short_version(): str
+    + __eq__(other: Clients): bool
+}
+
+class ClientsShort {
+    __init__(client_id: int, fullname: str, phone_number: str, email: str)
+}
+
+ClientsShort --> Clients
+
+@enduml
