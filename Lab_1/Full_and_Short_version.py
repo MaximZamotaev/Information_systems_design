@@ -97,15 +97,17 @@ class Clients:
 
 
 # Пример использования
-client1 = Clients(client_id=1, fullname="Иван Иванов", phone_number="+79161234567", email="ivanov@example.com")
-client2 = Clients(client_id=2, fullname="Мария Смирнова", phone_number="+79161234568", email="smirnova@example.com")
-client3 = Clients(client_id=1, fullname="Иван Иванов", phone_number="+79161234567", email="ivanov@example.com")
+# Этот блок выполнится только при запуске скрипта, но не при импорте
+if __name__ == "__main__":
+    client1 = Clients(client_id=1, fullname="Иван Иванов", phone_number="+79161234567", email="ivanov@example.com")
+    client2 = Clients(client_id=2, fullname="Мария Смирнова", phone_number="+79161234568", email="smirnova@example.com")
+    client3 = Clients(client_id=1, fullname="Иван Иванов", phone_number="+79161234567", email="ivanov@example.com")
 
-print("Полная версия клиента 1:")
-print(client1)
-print("Краткая версия клиента 1:")
-print(client1.short_version())
+    print("Полная версия клиента 1:")
+    print(client1)
+    print("Краткая версия клиента 1:")
+    print(client1.short_version())
 
-print("\nСравнение объектов:")
-print(f"client1 == client2: {client1 == client2}")
-print(f"client1 == client3: {client1 == client3}")
+    print("\nСравнение объектов:")
+    print(f"client1 == client2: {client1 == client2}")
+    print(f"client1 == client3: {client1 == client3}")
